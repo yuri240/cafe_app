@@ -1,0 +1,8 @@
+<div class="card">
+  <%= link_to image_tag(post.images[0], class: :card__img ), post_path(post)%>
+  <p class="index-title">【<%=post.title %>】</p>
+  <p class="card__body">おすすめ度  <%= post.favorite.name %></p>
+  <p class="detail-value">エリア：<%= post.area.name %></p>
+  <span class="post-price">価格：<%= post.price.name %>円</span>
+  <%= link_to "by #{post.user.name}", user_path(post.user), class: :card__user %>
+</div>

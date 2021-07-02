@@ -1,0 +1,62 @@
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+
+      <div class="share">
+        <%# ラインボタン %>
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="http://localhost:3000/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
+        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+        <%# ツイッターボタン %>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <%# Facebookボタン %>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0&appId=332070874903724&autoLogAppEvents=1" nonce="GVdcHdZs"></script>
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" style="display: inline-flex;"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+      </div>
+
+      <%# スライダー表示 %>
+      <div class="slider">
+      <% @post.images.each do |image| %>
+        <%= image_tag image, class: "slic-image" %>
+      <% end %>
+      </div>
+      <p class="post__hedding">
+      【<%= @post.title %>】
+      </p>
+      <div class="post__body">
+        <p class="prototype__hedding1">おすすめ度<%= @post.favorite.name %></p>
+        <p class="prototype__hedding">エリア： <%= @post.area.name %></p>
+        <p class="prototype__hedding">価格：<%= @post.price.name %> 円</p>
+        <p class="prototype__hedding">感想： <%= @post.impression %></p>
+      </div>
+
+      <%# アクションケーブル %>
+      <div class="post__comments">
+        <% if current_user %>
+          <%= form_with model: [@post, @comment],id:"comments", local: true do |f|%>
+            <div class="field">
+              <%= f.label :comment, "コメント欄" %><br />
+              <%= f.text_field :text, id:"comment_text" %>
+            </div>
+            <div class="actions">
+              <%# f.submitだとdo使えないので、buttonで代用。 %>
+              <%= f.button :SEND, class: :form__btn  %>
+            </div>
+          <% end %>
+        <% end %>
+        <div id="comments_lists" >
+          <% @post.comments.each do |comment| %>
+            <li class="comments_list">
+              <%= "#{comment.text}"%>
+              <%= link_to "（#{comment.user.name}）", user_path(comment.user) ,class: :comment_user %> 
+            </li>
+          <% end %>
+        </div>
+        <div id="signin_comments" >
+        <p class="signin_comment">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+        </div>
+      </div>
+      <%# アクションケーブル %>
+    </div>
+  </div>
+</main>
