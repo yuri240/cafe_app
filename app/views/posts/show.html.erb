@@ -52,9 +52,12 @@
             </li>
           <% end %>
         </div>
-        <div id="signin_comments" >
-        <p class="signin_comment">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
-        </div>
+        <% if user_signed_in? %>
+          <div id="signin_comments" >
+        <% else %>
+          <p class="signin_comment">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+          </div>
+        <% end %>
       </div>
       <%# アクションケーブル %>
     </div>
