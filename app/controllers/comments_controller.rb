@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id]) # 追記
     if @comment.save
-      ActionCable.server.broadcast "comments_channel", {comment: @comment, user: @comment.user}
+      CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
     else
       @post =  @comment.post
       @comments = @post.comments
-      render "posts/show"
+      render "posts/show", status: :unprocessable_entity
     end
   end
 

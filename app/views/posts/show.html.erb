@@ -33,14 +33,13 @@
       <%# アクションケーブル %>
       <div class="post__comments">
         <% if current_user %>
-          <%= form_with model: [@post, @comment],id:"comments", local: true do |f|%>
+          <%= form_with model: [@post, @comment],data: { turbo: false }, id: "comments" do |f|%>
             <div class="field">
               <%= f.label :comment, "コメント欄" %><br />
               <%= f.text_field :text, id:"comment_text" %>
             </div>
             <div class="actions">
-              <%# f.submitだとdo使えないので、buttonで代用。 %>
-              <%= f.button :SEND, class: :form__btn  %>
+              <%= f.submit "SEND", class: :form__btn  %>
             </div>
           <% end %>
         <% end %>

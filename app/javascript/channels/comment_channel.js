@@ -1,6 +1,13 @@
 import consumer from "./consumer"
-if(location.pathname.match(/posts/) && location.pathname.match(/\d+/)){
-  consumer.subscriptions.create("CommentsChannel", {
+
+if(location.pathname.match(/\/posts\/\d+/)){
+
+// 以下を追加
+  consumer.subscriptions.create({
+    channel: "CommentChannel",
+    post_id: location.pathname.match(/\d+/)[0]
+  }, {
+
     connected() {
       // ActionCableと通信を確立した際にコンソールにインフォメーションを出力
     },

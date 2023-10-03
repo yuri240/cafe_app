@@ -1,17 +1,14 @@
 {
-  "name": "cafe_app",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "@rails/actioncable": "^6.0.0-alpha",
-    "@rails/activestorage": "^6.0.0-alpha",
-    "@rails/ujs": "^6.0.0-alpha",
-    "@rails/webpacker": "4.3.0",
-    "jquery": "^3.6.0",
-    "turbolinks": "^5.2.0"
+  "name": "app",
+  "private": "true",
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds"
   },
-  "version": "0.1.0",
-  "devDependencies": {
-    "webpack-dev-server": "^3.11.2"
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "postcss": "^8.4.30",
+    "postcss-cli": "^10.1.0",
+    "postcss-preset-env": "^9.1.4",
+    "slick-carousel": "^1.8.1"
   }
 }
