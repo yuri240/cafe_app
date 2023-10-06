@@ -6,6 +6,7 @@ import "channels"
 import "image"
 import "preview"
 import 'slick-carousel'
+import "@fortawesome/fontawesome-free"
 
 import { Turbo } from "@hotwired/turbo-rails"
 

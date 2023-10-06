@@ -16,3 +16,4 @@ pin "jquery" # @3.7.1
 pin "slick-carousel" # @1.8.1
 pin "slick", to: "slick.js"
 
+pin "@fortawesome/fontawesome-free", to: "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.4.2/js/all.js"

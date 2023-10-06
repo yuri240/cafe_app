@@ -355,3 +355,18 @@ a {
 
   
 }
+
+// いいねぼたん
+.like-button{
+ display: flex;
+ justify-content: space-between
+}
+
+.tweet_likes{
+  color: pink;
+}
+
+.svg-inline--fa{
+  height: 1.2em;
+
+}
