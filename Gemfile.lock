@@ -115,6 +115,8 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.0)
+    font-awesome-sass (6.4.2)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -332,6 +334,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   ffi (= 1.15.0)
+  font-awesome-sass
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

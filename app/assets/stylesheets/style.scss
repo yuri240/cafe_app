@@ -355,3 +355,27 @@ a {
 
   
 }
+
+// いいねぼたん
+.like-button{
+ display: flex;
+ justify-content: space-between;
+ width: 298px;
+}
+
+.tweet_likes{
+  color: pink;
+}
+
+.svg-inline--fa{
+  height: 1.2em;
+
+}
+
+.slider img {
+  width: 100%; /* 幅は親要素に合わせる */
+  height: 600px; /* 高さは任意。ここでは300pxとしている */
+  object-fit: contain; /* 画像が指定した領域に収まるようにする */
+  background-color: #f6f6f6;
+  margin-top: 5px;
+}

@@ -89,3 +89,4 @@ gem "jsbundling-rails", "0.1.0"
 gem "cssbundling-rails", "0.1.0"
 
 gem 'sassc-rails'
+gem 'font-awesome-sass'

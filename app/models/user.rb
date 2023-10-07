@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :sns_credentials
+  has_many :likes
 
 # 最終的にuserのインスタンスを返すクラスメソッド
   # SNSと同emailのユーザが存在すればそのユーザを返す。いなければuserを作成し返す。

@@ -1,6 +1,23 @@
 <div class="card">
   <%= link_to image_tag(post.images[0], class: :card__img ), post_path(post),data: { turbo: false }%>
-  <p class="index-title">【<%=post.title %>】</p>
+  <div class="like-button">
+    <div class="index-title">【<%=post.title %>】</div>
+
+    <div id="like-btn<%= post.id %>">
+      <%= turbo_frame_tag dom_id(post, :like) do %>
+        <% if user_signed_in? && post.liked_by?(current_user)%>
+          <%=link_to post_likes_path(post.id),  data: { turbo_method: :delete }, class: "tweet_likes" do %>
+            <i class="fas fa-thumbs-up"></i>
+          <% end %>
+        <% else %>
+          <%=link_to post_likes_path(post.id), data: { turbo_method: :post }, class: "tweet_likes" do %>
+            <i class="far fa-thumbs-up"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
   <p class="card__body">おすすめ度  <%= post.favorite.name %></p>
   <p class="detail-value">エリア：<%= post.area.name %></p>
   <span class="post-price">価格：<%= post.price.name %>円</span>
