@@ -26,12 +26,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(
-      :title,
-      :favorite_id,
-      :area_id,
-      :price_id,
-      :impression,
-      {images: []}
     ).merge(user_id: current_user.id)
   end
 end

@@ -4,8 +4,16 @@ class Post < ApplicationRecord
   belongs_to_active_hash :favorite
   belongs_to_active_hash :price
 
+  validates :title, presence: true
+  validates :impression, presence: true
   validates :images, presence: true
   validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
+
+  with_options numericality: { other_than: 0, message: "can't be blank" } do
+    validates :area_id
+    validates :favorite_id
+    validates :price_id
+  end
 
 
     # <<アクティブストレージの設定関連>>
